@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wavemotion — Drop it in. Let it move.</title>
+<meta name="description" content="Wavemotion is a movement operating system for creators: drop in what you made, find the moments that matter, and move them to every place you're connected, with receipts for everything that happened.">
+<meta property="og:title" content="Wavemotion — Drop it in. Let it move.">
+<meta property="og:description" content="Drop in what you made. Wavemotion finds the moments, moves them everywhere you're connected, gives people a front door, and remembers what happened.">
+<meta property="og:url" content="https://wavemotion.live/">
+<meta name="theme-color" content="#05070d">
+<style>
+  :root { --bg:#05070d; --ink:#eef2fa; --muted:#9aa7bf; --line:#1c2640; --cyan:#38d9f5; --violet:#7c6cff; --gold:#e8b85a; --card:#0a0f1d; color-scheme:dark; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 "Avenir Next","Segoe UI",system-ui,sans-serif; }
+  a { color:inherit; }
+  .wrap { width:min(1080px,100%); margin:0 auto; padding-inline:20px; }
+  header.top { position:sticky; top:0; z-index:5; backdrop-filter:blur(12px); background:rgba(5,7,13,.72); border-bottom:1px solid rgba(28,38,64,.6); padding-top:env(safe-area-inset-top,0px); }
+  .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:60px; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.18em; font-size:.8rem; text-decoration:none; }
+  .brand svg { flex:none; }
+  .nav nav { display:flex; gap:18px; align-items:center; font-size:.9rem; color:var(--muted); }
+  .nav nav a { text-decoration:none; } .nav nav a:hover { color:var(--ink); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:0 20px; border-radius:999px; font-weight:650; text-decoration:none; border:1px solid transparent; }
+  .btn-main { background:linear-gradient(100deg,var(--cyan),#7fe7ff); color:#03121a; }
+  .btn-ghost { border-color:var(--line); color:var(--ink); }
+  .btn:focus-visible, a:focus-visible { outline:3px solid var(--cyan); outline-offset:3px; }
+
+  .hero { position:relative; overflow:hidden; padding-block:72px 64px; }
+  .hero::before { content:""; position:absolute; inset:-30% -20% auto; height:120%; background:radial-gradient(45% 40% at 25% 40%,rgba(56,217,245,.18),transparent 70%),radial-gradient(40% 40% at 80% 30%,rgba(124,108,255,.22),transparent 70%); filter:blur(30px); pointer-events:none; }
+  .kicker { margin:0 0 14px; color:var(--cyan); font-size:.75rem; letter-spacing:.24em; font-weight:700; }
+  h1 { margin:0; font-size:clamp(2.6rem,7.5vw,5.2rem); line-height:.98; letter-spacing:-.035em; max-width:13ch; text-wrap:balance; }
+  .lede { margin:22px 0 30px; max-width:58ch; color:#cfd8e6; font-size:1.15rem; }
+  .cta { display:flex; flex-wrap:wrap; gap:12px; }
+
+  .grammar { display:flex; flex-wrap:wrap; gap:8px; margin-top:44px; }
+  .step { display:flex; align-items:center; gap:10px; padding:10px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(10,15,29,.7); font-weight:650; font-size:.9rem; letter-spacing:.08em; }
+  .step b { color:var(--cyan); font-variant-numeric:tabular-nums; }
+  .step + .arrow { color:var(--muted); align-self:center; }
+
+  section.band { padding-block:64px; border-top:1px solid rgba(28,38,64,.6); }
+  h2 { margin:0 0 10px; font-size:clamp(1.7rem,4vw,2.5rem); letter-spacing:-.02em; line-height:1.1; text-wrap:balance; }
+  .sub { margin:0 0 32px; color:var(--muted); max-width:62ch; }
+  .lineage { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:0; border:1px solid var(--line); border-radius:18px; overflow:hidden; }
+  .lineage div { padding:20px; border-right:1px solid var(--line); background:var(--card); }
+  .lineage div:last-child { border-right:0; }
+  .lineage small { display:block; color:var(--cyan); letter-spacing:.18em; font-size:.68rem; font-weight:700; margin-bottom:6px; }
+  .lineage strong { display:block; font-size:1.05rem; margin-bottom:4px; }
+  .lineage p { margin:0; color:var(--muted); font-size:.9rem; }
+
+  .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:28px 36px; }
+  .features h3 { margin:0 0 6px; font-size:1.08rem; }
+  .features p { margin:0; color:var(--muted); }
+  .features .tag { display:inline-block; margin-bottom:10px; width:28px; height:3px; background:var(--violet); border-radius:2px; }
+
+  .prices { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:20px; }
+  .card { border:1px solid var(--line); border-radius:20px; background:var(--card); padding:26px; }
+  .big { font-size:3rem; font-weight:800; letter-spacing:-.03em; }
+  .card ul { margin:14px 0 0; padding-left:18px; color:#cfd8e6; display:grid; gap:6px; }
+  table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+  th, td { text-align:left; padding:12px 8px; border-bottom:1px solid var(--line); }
+  th { color:var(--muted); font-weight:600; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+  td.member { color:var(--gold); font-weight:700; }
+  .note { margin:14px 0 0; color:var(--muted); font-size:.88rem; }
+
+  .truth { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+  .truth div { padding:18px; border-left:3px solid var(--cyan); background:rgba(56,217,245,.04); border-radius:0 12px 12px 0; }
+  .truth strong { display:block; margin-bottom:4px; }
+  .truth p { margin:0; color:var(--muted); font-size:.92rem; }
+
+  footer { padding-block:40px calc(48px + env(safe-area-inset-bottom,0px)); border-top:1px solid rgba(28,38,64,.6); color:var(--muted); font-size:.88rem; }
+  footer .row { display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:space-between; }
+  footer nav { display:flex; flex-wrap:wrap; gap:18px; }
+
+  @media (max-width:760px) {
+    .nav nav a:not(.btn) { display:none; }
+    .prices { grid-template-columns:1fr; }
+    .lineage div { border-right:0; border-bottom:1px solid var(--line); }
+    .lineage div:last-child { border-bottom:0; }
+    .hero { padding-block:48px 44px; }
+  }
+  @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Wavemotion home">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#38d9f5"/><stop offset="1" stop-color="#7c6cff"/></linearGradient></defs><path d="M2 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 4 8 4 8" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/></svg>
+      WAVEMOTION
+    </a>
+    <nav aria-label="Site">
+      <a href="#how">How it moves</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn btn-ghost" data-app="/" href="https://wavemotion.dhill5711.workers.dev/">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">A MOVEMENT OPERATING SYSTEM · BY ABOVE THE HILL</p>
+      <h1>Drop it in. Let it move.</h1>
+      <p class="lede">You made something: a song, a lesson, a sermon, a product, a moment. Wavemotion finds what inside it matters, moves it to every place you're connected, gives people a door to walk through, and remembers exactly what happened.</p>
+      <div class="cta">
+        <a class="btn btn-main" data-app="/" href="https://wavemotion.dhill5711.workers.dev/">Start moving</a>
+        <a class="btn btn-ghost" href="#pricing">See pricing</a>
+      </div>
+      <div class="grammar" aria-label="How a launch works">
+        <span class="step"><b>1</b> DROP IT</span><span class="arrow" aria-hidden="true">→</span>
+        <span class="step"><b>2</b> WHERE</span><span class="arrow" aria-hidden="true">→</span>
+        <span class="step"><b>3</b> WHEN</span><span class="arrow" aria-hidden="true">→</span>
+        <span class="step"><b>4</b> MODE</span><span class="arrow" aria-hidden="true">→</span>
+        <span class="step"><b>5</b> MOVE</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="how">
+    <div class="wrap">
+      <h2>This became this, moved here, produced this.</h2>
+      <p class="sub">Every launch keeps its whole story, from the original file to what people actually did. Nothing forks into five disconnected copies.</p>
+      <div class="lineage">
+        <div><small>SOURCE</small><strong>What you made</strong><p>Preserved as the original, with a checksum. Everything descends from it.</p></div>
+        <div><small>MOMENT</small><strong>What matters in it</strong><p>Wavemotion suggests Moments and says why. You decide.</p></div>
+        <div><small>LAUNCH</small><strong>Why it's moving</strong><p>Purpose, destinations, timing and mode, assembled in one place.</p></div>
+        <div><small>MOVEMENT</small><strong>Where it went</strong><p>Posted by the server on schedule, even while you sleep. One receipt per post.</p></div>
+        <div><small>MEMORY</small><strong>What happened</strong><p>Clicks, responses and failures stay attached, so the next move is smarter.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Built for creators who post for real</h2>
+      <p class="sub">Everything a creator, artist or business needs to move work consistently, without handing over a password.</p>
+      <div class="features">
+        <div><span class="tag"></span><h3>Every platform, 5 accounts each</h3><p>YouTube, TikTok, Instagram, Facebook, Threads, X, LinkedIn, Pinterest, Bluesky, Discord, Telegram and more. Business, personal and brand accounts side by side. You sign in on each platform's own page.</p></div>
+        <div><span class="tag"></span><h3>Living Destination</h3><p>Your own front door on the web: five atmospheres (Stage, Studio, Business, Atmosphere, Minimal), your colors, your links. Switching looks never loses anything, and every link click is counted.</p></div>
+        <div><span class="tag"></span><h3>Posts while you sleep</h3><p>Schedule once. The server moves it at the time, retries safely, and never double-posts. Kill Wave stops everything instantly.</p></div>
+        <div><span class="tag"></span><h3>Moments, not just uploads</h3><p>Drop a long video and Wavemotion finds the moments worth clipping, with the reason for each. Human clipping packages are available too.</p></div>
+        <div><span class="tag"></span><h3>Client connect links</h3><p>Managing artists or businesses? Send one link. They sign in to their own accounts and consent; their accounts land in your workspace, ready to post.</p></div>
+        <div><span class="tag"></span><h3>Receipts for everything</h3><p>Every post, failure, retry and correction has a receipt. Wavemotion never shows a "Posted" it can't prove.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="pricing">
+    <div class="wrap">
+      <h2>Priced plainly</h2>
+      <p class="sub">The software is one price. Human clipping is separate work, sold in packages. Passport and World Pass members get 20% off clipping.</p>
+      <div class="prices">
+        <div class="card">
+          <p class="kicker">WAVEMOTION SOFTWARE</p>
+          <div><span class="big">$10</span> <span style="color:var(--muted)">/ month</span></div>
+          <ul>
+            <li>Launches to every connected platform</li>
+            <li>Living Destination with click truth</li>
+            <li>Scheduled posting, receipts, Kill Wave</li>
+            <li>Up to 5 accounts per platform</li>
+          </ul>
+          <p style="margin:20px 0 0"><a class="btn btn-main" data-app="/" href="https://wavemotion.dhill5711.workers.dev/">Get started</a></p>
+        </div>
+        <div class="card">
+          <p class="kicker">CLIPPING PACKAGES</p>
+          <table>
+            <thead><tr><th scope="col">Package</th><th scope="col">Price</th><th scope="col">Passport / World Pass</th></tr></thead>
+            <tbody>
+              <tr><td>10 clips</td><td>$75</td><td class="member">$60</td></tr>
+              <tr><td>20 clips</td><td>$125</td><td class="member">$100</td></tr>
+              <tr><td>30 clips</td><td>$175</td><td class="member">$140</td></tr>
+              <tr><td>40 clips</td><td>$225</td><td class="member">$180</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Members get exactly 20% off; it doesn't stack with anything else. You can watch your package progress in Wavemotion: approved, in review, remaining.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Truth before theater</h2>
+      <p class="sub">Wavemotion is built on one rule: never a beautiful lie.</p>
+      <div class="truth">
+        <div><strong>A click is a click</strong><p>Wavemotion never calls a click a sale, or an estimate verified revenue.</p></div>
+        <div><strong>Connected means authorized</strong><p>An account shows connected only after you approved it on the platform's own page.</p></div>
+        <div><strong>Posted means proven</strong><p>"Posted" appears only when the platform returned a real post ID.</p></div>
+        <div><strong>Your password stays yours</strong><p>Sign-in happens on each platform. Tokens are encrypted and revocable anytime.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>© 2026 Above the Hill Developments · Wavemotion</span>
+    <nav aria-label="Legal">
+      <a data-app="/privacy" href="https://wavemotion.dhill5711.workers.dev/privacy">Privacy Policy</a>
+      <a data-app="/terms" href="https://wavemotion.dhill5711.workers.dev/terms">Terms of Service</a>
+      <a data-app="/" href="https://wavemotion.dhill5711.workers.dev/">Sign in</a>
+    </nav>
+  </div>
+</footer>
+<script src="/app.js"></script>
+</body>
+</html>

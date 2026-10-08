@@ -6,6 +6,10 @@
   // Wavemotion app. Carry the visitor there with the same path, query and anchor.
   var APP = "https://wavemotion.dhill5711.workers.dev";
   var p = location.pathname;
+  // Creator short links belong to WOW's attribution owner, not the studio.
+  if (/^\/@[a-zA-Z0-9_.-]{2,32}\/?$/.test(p)) {
+    location.replace("https://thewow.online/w/" + p.slice(1).replace(/\/$/, "") + location.search + location.hash);
+  }
   if (/^\/(d|connect|go|auth|api)(\/|$)/.test(p)) location.replace(APP + p + location.search + location.hash);
 </script>
 <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#05070d;color:#eef2fa;font:16px/1.6 system-ui,sans-serif;text-align:center;padding:24px}a{color:#38d9f5}</style>

@@ -72,6 +72,14 @@
   footer .row { display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:space-between; }
   footer nav { display:flex; flex-wrap:wrap; gap:18px; }
 
+
+  .shorts { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .short video { width:100%; aspect-ratio:9/16; border-radius:16px; background:#000; display:block; object-fit:cover; }
+  .fulls-title { margin:40px 0 14px; font-size:1.2rem; }
+  .fulls { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr)); gap:18px; }
+  .full video { width:100%; aspect-ratio:16/9; border-radius:14px; background:#000; display:block; }
+  figure { margin:0; } figcaption { margin-top:8px; color:var(--muted); font-size:.9rem; font-weight:600; }
+
   @media (max-width:760px) {
     .nav nav a:not(.btn) { display:none; }
     .prices { grid-template-columns:1fr; }
@@ -91,6 +99,7 @@
     </a>
     <nav aria-label="Site">
       <a href="#how">How it moves</a>
+      <a href="#dspaid">Dspaid</a>
       <a href="#pricing">Pricing</a>
       <a class="btn btn-ghost" data-app="/" href="https://wavemotion.dhill5711.workers.dev/">Sign in</a>
     </nav>
@@ -143,6 +152,29 @@
         <div><span class="tag"></span><h3>Client connect links</h3><p>Managing artists or businesses? Send one link. They sign in to their own accounts and consent; their accounts land in your workspace, ready to post.</p></div>
         <div><span class="tag"></span><h3>Receipts for everything</h3><p>Every post, failure, retry and correction has a receipt. Wavemotion never shows a "Posted" it can't prove.</p></div>
       </div>
+    </div>
+  </section>
+
+
+  <section class="band" id="dspaid">
+    <div class="wrap">
+      <p class="kicker">MADE WITH WAVEMOTION · DSPAID</p>
+      <h2>Four songs, moving</h2>
+      <p class="sub">Music videos and Shorts for Dspaid. Every frame is drawn from the song itself: the spectrum, the stereo field and the waveform move with the music. Each Short starts where its track hits hardest, found by measuring the audio.</p>
+      <div class="shorts">
+        <figure class="short"><video controls playsinline preload="none" poster="/media/fresh-sneakers-short.jpg" src="/media/fresh-sneakers-short.mp4"></video><figcaption>Fresh Sneakers</figcaption></figure>
+        <figure class="short"><video controls playsinline preload="none" poster="/media/bowling-ball-short.jpg" src="/media/bowling-ball-short.mp4"></video><figcaption>Bowling Ball</figcaption></figure>
+        <figure class="short" hidden><video controls playsinline preload="none" poster="/media/smoke-signals-short.jpg" src="/media/smoke-signals-short.mp4"></video><figcaption>Smoke Signals</figcaption></figure>
+        <figure class="short" hidden><video controls playsinline preload="none" poster="/media/eddie-kane-short.jpg" src="/media/eddie-kane-short.mp4"></video><figcaption>Eddie Kane</figcaption></figure>
+      </div>
+      <h3 class="fulls-title">Full videos</h3>
+      <div class="fulls">
+        <figure class="full"><video controls playsinline preload="none" poster="/media/fresh-sneakers-full.jpg" src="/media/fresh-sneakers-full.mp4"></video><figcaption>Fresh Sneakers · Dspaid</figcaption></figure>
+        <figure class="full"><video controls playsinline preload="none" poster="/media/bowling-ball-full.jpg" src="/media/bowling-ball-full.mp4"></video><figcaption>Bowling Ball · Dspaid</figcaption></figure>
+        <figure class="full" hidden><video controls playsinline preload="none" poster="/media/smoke-signals-full.jpg" src="/media/smoke-signals-full.mp4"></video><figcaption>Smoke Signals · Dspaid</figcaption></figure>
+        <figure class="full" hidden><video controls playsinline preload="none" poster="/media/eddie-kane-full.jpg" src="/media/eddie-kane-full.mp4"></video><figcaption>Eddie Kane · Dspaid</figcaption></figure>
+      </div>
+      <p class="note">Watch them on <a href="https://www.youtube.com/@dspaid" rel="noopener">Dspaid on YouTube</a>.</p>
     </div>
   </section>
 
